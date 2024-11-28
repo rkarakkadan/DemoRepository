@@ -79,7 +79,7 @@ namespace dvcsharp_core_api
          var md5 = MD5.Create();
          var hash = md5.ComputeHash(System.Text.Encoding.ASCII.GetBytes(passwordResetRequest.email));
 
-         passwordResetRequest.key = BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
+         passwordResetRequest.key = BitConverter.ToString(hash).Replace("-", " ").ToLowerInvariant();
          passwordResetRequest.createdAt = passwordResetRequest.updatedAt = DateTime.Now;
 
          _context.PasswordResetRequests.Add(passwordResetRequest);
